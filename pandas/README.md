@@ -23,9 +23,8 @@ Then upload these wheel files to S3:
 ```
 s3cmd put pandas*.whl s3://artifacts.h2o.ai/releases/ai/h2o/thirdparty/pandas/ --acl-public
 ```
-<!-- http://artifacts.h2o.ai.s3.amazonaws.com/releases/ai/h2o/thirdparty/pandas/ -->
 
-Finally, run the following python script to generate links that should be added to this repo's `python/index.html` file:
+Finally, run the following python script to generate links that should be added to this repo's `pandas/index.html` file:
 ```
 import glob
 import hashlib
