@@ -7,17 +7,16 @@ cd wheels
 docker run --rm --init -u `id -u`:`id -g` --entrypoint /bin/bash -v `pwd`:/dot -e HOME=/tmp \
     quay.io/pypa/manylinux2014_ppc64le \
     -c "cd /tmp && \
-        /opt/python/cp35-cp35m/bin/python -m pip install --upgrade --user pip && \
         /opt/python/cp36-cp36m/bin/python -m pip install --upgrade --user pip && \
         /opt/python/cp37-cp37m/bin/python -m pip install --upgrade --user pip && \
         /opt/python/cp38-cp38/bin/python  -m pip install --upgrade --user pip && \
-        /opt/python/cp35-cp35m/bin/python -m pip wheel pandas && \
         /opt/python/cp36-cp36m/bin/python -m pip wheel pandas && \
         /opt/python/cp37-cp37m/bin/python -m pip wheel pandas && \
         /opt/python/cp38-cp38/bin/python  -m pip wheel pandas && \
         ls -la && \
         mv *.whl /dot"
 ```
+Pandas doesn't support python3.5 starting with version `1.0.0`.
 
 Then upload these wheel files to S3:
 ```
