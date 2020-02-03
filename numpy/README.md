@@ -30,7 +30,7 @@ import glob
 import hashlib
 for filename in glob.glob("numpy*.whl"):
   sha = hashlib.sha256(open(filename, 'rb').read()).hexdigest()
-  print('<a href="http://artifacts.h2o.ai.s3.amazonaws.com/releases/'
-        'ai/h2o/thirdparty/numpy/%s#sha256=%s">%s</a>'
+  print('    <li><a href="http://artifacts.h2o.ai.s3.amazonaws.com/releases/'
+        'ai/h2o/thirdparty/numpy/%s#sha256=%s">%s</a></li>'
         % (filename, sha, filename))
 ```
