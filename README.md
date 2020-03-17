@@ -5,8 +5,20 @@ Its purpose is to provide pre-built binary files for some packages that we use
 but whose wheels were not published to PyPI.
 
 ## Usage ##
+
+In order to install `numpy`, use:
+```
+pip install -i https://h2oai.github.io/py-repo/  numpy
+```
+
+In order to install `pandas`, use:
 ```
 pip install -i https://h2oai.github.io/py-repo/ --extra-index-url https://pypi.org/simple/ packages...
+```
+
+If using a requirements.txt file that lists numpy/pandas/other packages:
+```
+pip install -i https://h2oai.github.io/py-repo/ --extra-index-url https://pypi.org/simple/ -r requirements.txt
 ```
 
 ## Adding new package ##
