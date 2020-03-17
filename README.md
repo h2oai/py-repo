@@ -6,19 +6,15 @@ but whose wheels were not published to PyPI.
 
 ## Usage ##
 
-In order to install `numpy`, use:
+In order to install just a single `numpy` / `pandas` package, use:
 ```
 pip install -i https://h2oai.github.io/py-repo/  numpy
 ```
 
-In order to install `pandas`, use:
-```
-pip install -i https://h2oai.github.io/py-repo/ --extra-index-url https://pypi.org/simple/ packages...
-```
 
 If using a requirements.txt file that lists numpy/pandas/other packages:
 ```
-pip install -i https://h2oai.github.io/py-repo/ --extra-index-url https://pypi.org/simple/ -r requirements.txt
+pip install --extra-index-url https://h2oai.github.io/py-repo/  -r requirements.txt
 ```
 
 ## Adding new package ##
