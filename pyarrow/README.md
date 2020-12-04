@@ -4,8 +4,9 @@ On a PPC machine run the following docker script:
 ```
 mkdir -p wheels 
 cd wheels
-docker run --rm --init -u `id -u`:`id -g` --entrypoint /bin/bash -v `pwd`:/dot -it quay.io/pypa/manylinux2014_ppc64le
+docker run --rm --init -u `id -u`:`id -g` -v `pwd`:/dot -e HOME=/tmp -it quay.io/pypa/manylinux2014_ppc64le
 
+cd ~
 /opt/python/cp37-cp37m/bin/pip install virtualenv
 /opt/python/cp37-cp37m/bin/python -m virtualenv py37
 source py37/bin/activate
@@ -16,7 +17,6 @@ pip install pip --upgrade
 pip install cython
 pip install -i https://h2oai.github.io/py-repo/ numpy
 
-cd /tmp
 git clone https://github.com/apache/arrow
 cd arrow/cpp
 cmake -DCMAKE_INSTALL_PREFIX=$ARROW_HOME -DARROW_CXXFLAGS="-lutil" -DARROW_PYTHON=on && make -j4 && make install
