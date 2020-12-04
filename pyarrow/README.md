@@ -11,7 +11,8 @@ cd ~
 /opt/python/cp37-cp37m/bin/python -m virtualenv py37
 source py37/bin/activate
 export PS1="\n\033[38;5;34m(`basename $VIRTUAL_ENV`) [docker:$AUDITWHEEL_PLAT] \033[38;5;222m\w # \033[m"
-export ARROW_HOME=/usr/local/arrow
+export ARROW_HOME=/tmp/local/arrow
+mkdir -p $ARROW_HOME
 
 pip install pip --upgrade
 pip install cython
@@ -19,11 +20,13 @@ pip install -i https://h2oai.github.io/py-repo/ numpy
 
 git clone https://github.com/apache/arrow
 cd arrow/cpp
-cmake -DCMAKE_INSTALL_PREFIX=$ARROW_HOME -DARROW_CXXFLAGS="-lutil" -DARROW_PYTHON=on && make -j4 && make install
+cmake -DCMAKE_INSTALL_PREFIX=$ARROW_HOME -DARROW_CXXFLAGS="-lutil" -DARROW_PYTHON=on -DARROW_ORC=on -DARROW_PARQUET=on
+make -j4 
+make install
 
 cd ../python
 python setup.py build_ext --build-type=release --bundle-arrow-cpp bdist_wheel
-mv dist/*.whl /dot
+cp dist/*.whl /dot
 ```
 
 Then upload these wheel files to S3:
