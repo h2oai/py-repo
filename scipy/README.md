@@ -1,4 +1,4 @@
-# Steps for building new numpy wheels
+# Steps for building new scipy wheels
 
 On a PPC machine run the following docker command (note: this may take up to an hour):
 ```
