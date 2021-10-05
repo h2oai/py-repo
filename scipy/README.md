@@ -8,9 +8,9 @@ docker run --rm --init --entrypoint /bin/bash -v `pwd`:/dot -e HOME=/tmp \
     quay.io/pypa/manylinux2014_ppc64le \
     -c "yum update -y && yum install -y lapack-devel lapack64-devel && \
         cd /tmp && \
-        /opt/python/cp36-cp36m/bin/python -m pip wheel scipy && \
-        /opt/python/cp37-cp37m/bin/python -m pip wheel scipy && \
-        /opt/python/cp38-cp38/bin/python  -m pip wheel scipy && \
+        /opt/python/cp36-cp36m/bin/python -m pip wheel --no-deps scipy && \
+        /opt/python/cp37-cp37m/bin/python -m pip wheel --no-deps scipy && \
+        /opt/python/cp38-cp38/bin/python  -m pip wheel --no-deps scipy && \
         ls -la && \
         mv *.whl /dot"
 ```
