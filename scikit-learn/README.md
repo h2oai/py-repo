@@ -30,6 +30,6 @@ import hashlib
 for filename in glob.glob("scikit_learn*.whl"):
   sha = hashlib.sha256(open(filename, 'rb').read()).hexdigest()
   print('    <li><a href="http://artifacts.h2o.ai.s3.amazonaws.com/releases/'
-        'ai/h2o/thirdparty/numpy/%s#sha256=%s">%s</a></li>'
+        'ai/h2o/thirdparty/scikit_learn/%s#sha256=%s">%s</a></li>'
         % (filename, sha, filename))
 ```
