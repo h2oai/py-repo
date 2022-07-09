@@ -7,9 +7,10 @@ cd wheels
 docker run --rm --init -u `id -u`:`id -g` --entrypoint /bin/bash -v `pwd`:/dot -e HOME=/tmp \
     quay.io/pypa/manylinux2014_ppc64le \
     -c "cd /tmp && \
-        /opt/python/cp36-cp36m/bin/python -m pip wheel numpy && \
         /opt/python/cp37-cp37m/bin/python -m pip wheel numpy && \
         /opt/python/cp38-cp38/bin/python  -m pip wheel numpy && \
+        /opt/python/cp39-cp39/bin/python  -m pip wheel numpy && \
+        /opt/python/cp310-cp310/bin/python  -m pip wheel numpy && \
         ls -la && \
         mv *.whl /dot"
 ```
